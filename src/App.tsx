@@ -35,7 +35,7 @@ export default function App() {
         isMock={isMock}
         updatedAt={updatedAt}
       />
-      <main className="mx-auto max-w-7xl space-y-6 px-5 py-7 sm:space-y-8 sm:px-8 sm:py-8 lg:px-10">
+      <main className="mx-auto max-w-7xl space-y-5 px-4 py-5 sm:space-y-8 sm:px-8 sm:py-8 lg:px-10">
         <FilterBar
           windowDays={windowDays}
           area={area}

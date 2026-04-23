@@ -27,9 +27,9 @@ export default function FilterBar({
   medianPRs,
 }: Props) {
   return (
-    <div className="rounded-xl border border-white/10 bg-navy-800/50 p-4 sm:px-6 sm:py-4">
-      <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+    <div className="rounded-xl border border-white/10 bg-navy-800/50 p-3 sm:px-6 sm:py-4">
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
           <Segmented
             label="Window"
             info={
@@ -65,7 +65,7 @@ export default function FilterBar({
           />
         </div>
 
-        <dl className="flex items-center gap-6 text-sm text-slate-400 lg:justify-end">
+        <dl className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-400 sm:gap-x-6 lg:justify-end">
           <div className="flex items-baseline gap-2">
             <dt className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-slate-500">
               Ranked
@@ -130,8 +130,8 @@ function Segmented<T extends string | number>({
   onChange,
 }: SegmentedProps<T>) {
   return (
-    <div className="flex items-center gap-3">
-      <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-slate-500">
+    <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-3">
+      <span className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-slate-500 sm:text-xs">
         {label}
         {info && (
           <InfoTooltip
@@ -146,7 +146,7 @@ function Segmented<T extends string | number>({
       <div
         role="radiogroup"
         aria-label={label}
-        className="flex rounded-lg border border-white/10 bg-navy-900 p-0.5"
+        className="flex w-full rounded-lg border border-white/10 bg-navy-900 p-0.5 sm:w-auto"
       >
         {options.map((o) => {
           const active = o.value === value
@@ -158,7 +158,7 @@ function Segmented<T extends string | number>({
               aria-checked={active}
               onClick={() => onChange(o.value)}
               className={[
-                'rounded-md px-3 py-1.5 text-sm font-medium transition-colors',
+                'flex-1 rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors sm:flex-none sm:px-3',
                 active
                   ? 'bg-accent/15 text-accent'
                   : 'text-slate-400 hover:text-slate-100',

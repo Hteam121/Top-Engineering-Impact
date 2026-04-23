@@ -51,7 +51,7 @@ export default function MetricBreakdown({ engineer }: Props) {
               />
             </div>
 
-            <div className="mt-1 grid grid-cols-[minmax(0,1fr)_auto_6rem_2.5rem] items-center gap-x-4 gap-y-2 pl-4 text-xs">
+            <div className="mt-1 grid grid-cols-[minmax(0,1fr)_auto_3.5rem_2rem] items-center gap-x-2 gap-y-2 pl-2 text-xs sm:grid-cols-[minmax(0,1fr)_auto_6rem_2.5rem] sm:gap-x-4 sm:pl-4">
               {subs.map((sk) => {
                 const meta = SUB_METRICS[sk]
                 const norm = engineer.normalized[sk]

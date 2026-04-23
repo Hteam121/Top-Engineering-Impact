@@ -6,7 +6,7 @@ export default function MethodologyPanel() {
     <section
       id="methodology"
       aria-labelledby="methodology-heading"
-      className="scroll-mt-6 rounded-2xl border border-white/10 bg-navy-800/40 p-6 sm:p-8"
+      className="scroll-mt-6 rounded-2xl border border-white/10 bg-navy-800/40 p-4 sm:p-8"
     >
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <div className="flex items-center gap-2.5">
@@ -40,7 +40,7 @@ export default function MethodologyPanel() {
           return (
             <div
               key={dk}
-              className="rounded-xl border border-white/10 bg-white/[0.02] p-5"
+              className="rounded-xl border border-white/10 bg-white/[0.02] p-4 sm:p-5"
             >
               <div className="flex items-baseline justify-between gap-3">
                 <h3 className="text-base font-semibold text-slate-50">

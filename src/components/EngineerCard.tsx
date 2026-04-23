@@ -14,25 +14,18 @@ export default function EngineerCard({ engineer, windowDays }: Props) {
   return (
     <article
       className={[
-        'relative rounded-2xl border bg-navy-800/40 p-6 transition-colors sm:p-7',
+        'relative rounded-2xl border bg-navy-800/40 p-4 transition-colors sm:p-7',
         isTop
           ? 'border-accent/35 shadow-[0_0_60px_-25px_rgba(251,191,36,0.55)]'
           : 'border-white/10',
       ].join(' ')}
     >
-      {isTop && (
-        <span
-          aria-hidden="true"
-          className="absolute inset-y-6 left-0 w-[3px] rounded-r-full bg-accent/80"
-        />
-      )}
-
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,36%)_1fr] md:gap-8 lg:gap-10">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-[minmax(0,36%)_1fr] md:gap-8 lg:gap-10">
         {/* Left: identity + composite */}
-        <div className="flex flex-col gap-6">
-          <div className="flex items-start gap-4">
-            <div className="flex w-11 shrink-0 flex-col items-center">
-              <span className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-slate-500">
+        <div className="flex flex-col gap-5 sm:gap-6">
+          <div className="flex items-start gap-3 sm:gap-4">
+            <div className="flex w-9 shrink-0 flex-col items-center sm:w-11">
+              <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-wider text-slate-500 sm:text-xs">
                 Rank
                 <InfoTooltip
                   label="About the rank badge"
@@ -47,7 +40,7 @@ export default function EngineerCard({ engineer, windowDays }: Props) {
               </span>
               <span
                 className={[
-                  'font-mono text-3xl font-semibold leading-tight tabular-nums',
+                  'font-mono text-2xl font-semibold leading-tight tabular-nums sm:text-3xl',
                   isTop ? 'text-accent' : 'text-slate-100',
                 ].join(' ')}
               >
@@ -55,13 +48,13 @@ export default function EngineerCard({ engineer, windowDays }: Props) {
               </span>
             </div>
 
-            <Avatar url={avatar_url} seed={login} size={64} />
+            <Avatar url={avatar_url} seed={login} />
 
             <div className="min-w-0 flex-1">
-              <h2 className="truncate text-xl font-semibold leading-tight text-slate-50">
+              <h2 className="truncate text-lg font-semibold leading-tight text-slate-50 sm:text-xl">
                 @{login}
               </h2>
-              <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-sm tabular-nums text-slate-400">
+              <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs tabular-nums text-slate-400 sm:gap-x-4 sm:text-sm">
                 <span className="inline-flex items-center gap-1.5">
                   <span className="text-accent">{raw.merged_prs}</span>
                   <span className="text-slate-500">PRs</span>
@@ -105,15 +98,15 @@ export default function EngineerCard({ engineer, windowDays }: Props) {
             </div>
           </div>
 
-          <div className="flex flex-col border-t border-white/5 pt-5">
-            <span className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-500">
+          <div className="flex flex-col border-t border-white/5 pt-4 sm:pt-5">
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-slate-500 sm:text-xs">
               Composite score
               <CompositeInfo />
             </span>
             <div className="mt-1 flex items-baseline gap-2">
               <span
                 className={[
-                  'font-mono text-5xl font-semibold leading-none tabular-nums lg:text-6xl',
+                  'font-mono text-4xl font-semibold leading-none tabular-nums sm:text-5xl lg:text-6xl',
                   isTop
                     ? 'text-accent drop-shadow-[0_0_18px_rgba(251,191,36,0.35)]'
                     : 'text-slate-50',
@@ -121,16 +114,16 @@ export default function EngineerCard({ engineer, windowDays }: Props) {
               >
                 {composite.toFixed(1)}
               </span>
-              <span className="font-mono text-base text-slate-500">/ 100</span>
+              <span className="font-mono text-sm text-slate-500 sm:text-base">/ 100</span>
             </div>
-            <span className="mt-2 font-mono text-xs uppercase tracking-wider text-slate-500">
+            <span className="mt-2 font-mono text-[10px] uppercase tracking-wider text-slate-500 sm:text-xs">
               cohort-normalized · 0 to 100
             </span>
           </div>
         </div>
 
         {/* Right: full breakdown */}
-        <div className="md:border-l md:border-white/5 md:pl-8 lg:pl-10">
+        <div className="border-t border-white/5 pt-5 md:border-l md:border-t-0 md:pl-8 md:pt-0 lg:pl-10">
           <div className="mb-4 flex items-baseline justify-between">
             <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
               Dimension breakdown
@@ -159,16 +152,15 @@ export default function EngineerCard({ engineer, windowDays }: Props) {
   )
 }
 
-function Avatar({ url, seed, size }: { url: string | null; seed: string; size: number }) {
+function Avatar({ url, seed }: { url: string | null; seed: string }) {
   const src = url || `https://api.dicebear.com/7.x/identicon/svg?seed=${seed}`
   return (
     <img
       src={src}
       alt=""
-      width={size}
-      height={size}
-      style={{ width: size, height: size }}
-      className="shrink-0 rounded-full bg-navy-700 ring-2 ring-white/10"
+      width={64}
+      height={64}
+      className="h-12 w-12 shrink-0 rounded-full bg-navy-700 ring-2 ring-white/10 sm:h-16 sm:w-16"
       loading="lazy"
     />
   )
