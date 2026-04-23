@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Vite caches
+.vite/
+*.local
+
+# TypeScript incremental build info
+*.tsbuildinfo
+
+# Env vars — templates (.env.example, .env.local.example) stay tracked
+.env
+.env.local
+.env.*.local
+
+# Ingestion artifacts — GitHub snapshots and computed views.
+# Frontend reads from Supabase at runtime, so these do not ship.
+/data/
+
+# Python ingestion scripts runtime files
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code local state
+.claude/
+
+# Cloudflare Wrangler
+.wrangler/
