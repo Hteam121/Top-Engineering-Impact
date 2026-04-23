@@ -177,9 +177,3 @@ scripts/
 
 kanban.md                       # the original planning doc the agents worked from
 ```
-
----
-
-## License
-
-MIT.
